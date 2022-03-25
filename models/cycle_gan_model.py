@@ -100,7 +100,7 @@ class CycleGANModel(BaseModel):
             self.optimizers.append(self.optimizer_G)
             self.optimizers.append(self.optimizer_D)
 
-    def PGD(self, epoch):
+    def PGD(self, opt, epoch):
         if epoch == 2:
             self.netD_A = networks.define_D(opt.output_nc, opt.ndf*2, opt.netD,
                                             opt.n_layers_D, opt.norm, opt.init_type, opt.init_gain, self.gpu_ids)
